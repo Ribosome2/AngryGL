@@ -12,7 +12,7 @@
 class Model {
 public:
   /*  Functions   */
-  Model(char *path, bool enableTextures = true) {
+  Model(const GLchar * path, bool enableTextures = true) {
     this->enableTextures = enableTextures;
     loadModel(path);
   }

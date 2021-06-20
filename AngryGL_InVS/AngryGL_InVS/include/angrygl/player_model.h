@@ -1,4 +1,4 @@
-#ifndef ANG__SD_MODEL_H_
+﻿#ifndef ANG__SD_MODEL_H_
 #define ANG__SD_MODEL_H_
 
 #include <unordered_map>
@@ -16,7 +16,7 @@
 class PlayerModel {
 public:
   /*  Functions   */
-  PlayerModel(char *path) { loadModel(path); }
+  PlayerModel(const char *path) { loadModel(path); }
 
   void Draw(Shader shader, bool applyTextures = true) const;
   unsigned int GetNodeVAO() const;

@@ -467,7 +467,7 @@ int main(int argc, const char **argv) {
   simpleDepthShader.use();
   const unsigned int lsml = glGetUniformLocation(simpleDepthShader.id, "lightSpaceMatrix");
   Shader wigglyShader = Shader::create("angrygl/wiggly_shader.vert", "angrygl/player_shader.frag");
-  // Model wigglyBoi("angrygl/assets/wolf/Wolf_with_Animations.fbx", false);
+  Model wigglyBoi("angrygl/assets/EelDog/EelDog.FBX", false);
 
   Shader playerShader = Shader::create("angrygl/player_shader.vert", "angrygl/player_shader.frag");
   playerShader.use();
@@ -935,7 +935,7 @@ int main(int argc, const char **argv) {
         playerModel.Draw(simpleDepthShader, false);
         wigglyShader.use();
         glUniformMatrix4fv(glGetUniformLocation(wigglyShader.id, "PV"), 1, GL_FALSE, glm::value_ptr(lightSpaceMatrix));
-        // drawWigglyBois(wigglyBoi, wigglyShader, enemies);
+        drawWigglyBois(wigglyBoi, wigglyShader, enemies);
 
         glBindFramebuffer(GL_FRAMEBUFFER, sceneRenderFBO);
         glViewport(0, 0, viewportWidth, viewportHeight);
@@ -1054,7 +1054,7 @@ int main(int argc, const char **argv) {
     }
     wigglyShader.use();
     wigglyShader.setBool("useLight", true);
-    // drawWigglyBois(wigglyBoi, wigglyShader, enemies);
+    drawWigglyBois(wigglyBoi, wigglyShader, enemies);
 
     if (isMeasuredFrame) {
       logTimeSince("wiggly bois rendered: ", frameStart);
